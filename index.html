@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Vanhack - Events</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+
+<body>
+    <!-- page header -->
+    <header class="vhHeader">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="topnav">
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Jobs</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Courses</a></li>
+                </ul>
+            </div>
+            <div class="col-md-1" style="padding: 14px;">
+                <!-- premimum toggle -->
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleUser(this)">
+                    <label class="custom-control-label" for="customSwitch1" style="color: white;">Premium</label>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <!-- user icon -->
+                <div id="user">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
+                        class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="white"
+                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
+                        </path>
+                    </svg>
+                </div>
+                <div id="premimumUser" style="display: none;">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-shield"
+                        class="svg-inline--fa fa-user-shield fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512">
+                        <path fill="white"
+                            d="M622.3 271.1l-115.2-45c-4.1-1.6-12.6-3.7-22.2 0l-115.2 45c-10.7 4.2-17.7 14-17.7 24.9 0 111.6 68.7 188.8 132.9 213.9 9.6 3.7 18 1.6 22.2 0C558.4 489.9 640 420.5 640 296c0-10.9-7-20.7-17.7-24.9zM496 462.4V273.3l95.5 37.3c-5.6 87.1-60.9 135.4-95.5 151.8zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm96 40c0-2.5.8-4.8 1.1-7.2-2.5-.1-4.9-.8-7.5-.8h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c6.8 0 13.3-1.5 19.2-4-54-42.9-99.2-116.7-99.2-212z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+
+
+        </div>
+    </header>
+
+    <!-- navigation Button -->
+    <div class='backButton' style="display: none;">
+        <a href="#" class="backBtn" onclick="navigateToEvents()">
+            <i class="fas fa-arrow-circle-left"></i>Back to Events
+        </a>
+    </div>
+
+    <!-- vanhack Events -->
+    <div class="vhevents">
+        <br>
+        <div class="card text-center w-75" style="margin: auto;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body banner text-cente"
+                style="background-image: url('https://s31606.pcdn.co/wp-content/uploads/2015/12/mpi-partnership.jpg'); background-size: 71rem 20rem;">
+                <h1 class="card-title">VanHack Leap</h1>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="featuresEvents" onclick="loadLeapEvents()">Check it now</a>
+                <p class="text-muted">Last Updated 3 days ago</p>
+            </div>
+        </div>
+        <br>
+        <div class="card text-center w-75" style="margin: auto;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body banner"
+                style="background-image: url('https://www.10wallpaper.com/wallpaper/1366x768/1908/2019_Purple_Abstract_4K_HD_Design_1366x768.jpg'); background-size: 71rem 20rem;">
+                <h1 class="card-title">Recruiting Missions</h1>
+                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+            </div>
+            <div class="card-footer">
+                <a href="#" class="featuresEvents" onclick="loadRecruitments()">Check it now</a>
+                <p class="text-muted"> Last Updated 2 days ago</p>
+            </div>
+        </div>
+        <br>
+        <div class="card text-center w-75" style="margin: auto;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body banner"
+                style="background-image: url('https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2018/10/blog-how-to-get-into-cybersecurity.png')">
+                <h1 class="card-title">VanHackathon</h1>
+                <!-- <p class="card-text">The VanHackathon is a VIRTUAL Hackathon, everything will be online in our Slack -->
+                <!-- Community.</p> -->
+            </div>
+            <div class="card-footer">
+                <a href="#" class="featuresEvents" onclick="loadHackathon()">Check it now</a>
+                <p class="text-muted">Last Updated 5 days ago</p>
+            </div>
+        </div>
+        <br>
+
+        <!-- meetup and Webinar -->
+        <div class="card-deck">
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.wraltechwire.com/wp-content/uploads/2019/09/networking-meetup-stock-photo-1280x640.jpg"
+                    width="420" height="315" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">MeetUp</h5>
+                    <p class="card-text">
+                        We are bringing an event for Tech Talents who want to relocate to Canada or Europe and don’t
+                        know how.
+                        At the Meetup, you’ll have the opportunity to be part of a live Recruiting Fair where you will
+                        see opportunities from companies in Canada and Europe looking for talents just like you.
+                    </p>
+                    <a href="#" class="checkBtn" onclick="loadMeetups()">Check it now</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.gribblesvets.co.nz/wp-content/uploads/2020/05/Webinar2.jpg" width="420"
+                    height="315" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="premimumWebinar">Premium Webinar
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-shield"
+                            class="svg-inline--fa fa-user-shield fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 512">
+                            <path fill="rgb(213 166 49)"
+                                d="M622.3 271.1l-115.2-45c-4.1-1.6-12.6-3.7-22.2 0l-115.2 45c-10.7 4.2-17.7 14-17.7 24.9 0 111.6 68.7 188.8 132.9 213.9 9.6 3.7 18 1.6 22.2 0C558.4 489.9 640 420.5 640 296c0-10.9-7-20.7-17.7-24.9zM496 462.4V273.3l95.5 37.3c-5.6 87.1-60.9 135.4-95.5 151.8zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm96 40c0-2.5.8-4.8 1.1-7.2-2.5-.1-4.9-.8-7.5-.8h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c6.8 0 13.3-1.5 19.2-4-54-42.9-99.2-116.7-99.2-212z">
+                            </path>
+                        </svg>
+                    </h5>
+                    <p class="card-text">
+                        A webinar is an event held virtually which is attended exclusively by an online audience.
+
+                        Become a Premium user and explore 40+ hours of live classes every month, you’re bound to
+                        find a slot that works in your timezone. You will receive personalized interaction and feedback
+                        in every class making this a unique experience.
+                    </p>
+                    <a href="#" class="checkBtn" onclick="loadWebinar('Premium')">Check it now</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://elearningindustry.com/wp-content/uploads/2018/07/how-to-improve-your-online-training-webinars-in-5-easy-steps.jpeg"
+                    width="420" height="315" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Webinar</h5>
+                    <p class="card-text">
+                        A webinar is a form of one-to-many communication: a presenter can reach a large and specific
+                        group of online viewers from a single location. A webinar is an event held virtually which is
+                        attended exclusively by an online audience.
+                    </p>
+                    <a href="#" class="checkBtn" onclick="loadWebinar('Basic')">Check it now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- notification area -->
+    <!-- confirmation modal-->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #62c862; color: white;">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <span id="confimationMsg"></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mediaShare">
+                        <ul>
+                            <li>
+                                <p style="padding-top: 10px; font-size: large; font-weight: 700;"> Share:</p>
+                            </li>
+                            <li class="socialMedia facebook"><a href="#" class="fab fa-facebook-f"></a></li>
+                            <li class="socialMedia twitter"><a href="#" class="fab fa-twitter"></a></li>
+                            <li class="socialMedia linkedin"><a href="#" class="fab fa-linkedin"></a></li>
+                            <li class="socialMedia whatsapp"><a href="#" class="fab fa-whatsapp"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+        </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- premium pricing modal -->
+    <div class="modal fade" id="premiumPricing" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #1e2033;">
+                    <h4 style="color: white; margin-left: 9rem;">Premium Plan</h4>
+                    <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" style="width: 25rem; margin: auto;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p><i class="fas fa-check-circle" style="color: green;"></i>&ensp;3 months <span
+                                        style="float: right;">1999</span></p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><i class="fas fa-check-circle" style="color: grey;"></i>&ensp;6 months <span
+                                        style="float: right;">2999</span></p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><i class="fas fa-check-circle" style="color: grey;"></i>&ensp;12 months <span
+                                        style="float: right;">4999</span></p>
+                            </li>
+                            <!-- <li class="list-group-item"><a href="#" class="btn btn-primary">Buy Now</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal for Hackathon & Meetup Details -->
+    <div class="modal fade" id="HackathonModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" id="hackBg">
+                    <div class="modal-title col-md-12" id="hackathonModalLabel">
+                        <p id="hackathonTitle" style="margin: 0px;"></p>
+                        <p style="margin: 0px;" id="eventDate">3 Oct 2020</p>
+                        <button type="button" class="btn btn-primary" id="applyNow"
+                            onclick="applyHackathon(hackathonTitle)">Apply</button>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="padding: 0px; color: white; font-weight: bolder;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>About this Event <span id="appliedMsg"></span><i class="fas fa-check-circle" id="checkIcon"
+                            style="font-size: 20px !important; color: green; display: none;"></i></h2>
+                    <p id="eventDetails"></p>
+                </div>
+                <div class="modal-footer" style="justify-content: end;">
+                    <h2 id="skillHedaer">Skills & venue</h2>
+                    <p id="skillDetails"></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Event List Out -->
+    <!-- leap events -->
+    <div class="horizontal">
+        <div class="card mb-3" id="leapEvnets">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="" style="height: 15rem;" class="card-img leapImg" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title leapTitle"></h5>
+                        <p class="card-text LeapDesc"></p>
+                    </div>
+                    <div class="card-footer" id="leapfooter">
+                        <button type="button" class="btn btn-primary labutton"
+                            onclick="applyEvent(this.id)">Apply</button>
+                        <button type="button" class="btn btn-primary sdbutton" onclick="leapEventDetails(this.id)">See Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- hiring Mission -->
+    <div class="hiring" style="display: none;">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card mb-3">
+                    <img src="https://scontent.fmaa2-2.fna.fbcdn.net/v/t1.0-9/57597643_2395083334104489_7894407536546152448_o.jpg?_nc_cat=108&_nc_sid=2c4854&_nc_ohc=4zM87dkwJUYAX_uHRpq&_nc_ht=scontent.fmaa2-2.fna&oh=226b53be4a8d34a51ae3d811dd95c954&oe=5F803162"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">VanHack is bringing to Berlin a Recruiting
+                            Mission for Tech Talents who want to fuel the growth of Canada’s and Europe’s tech market.
+                            Some of the best companies in North America and Europe will be attending the fair, in hopes
+                            of filling over 100 positions.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Posted 2 days ago</small>
+                            <button class="btn btn-primary" onclick="applyForHiring('berlin')" id="berlin" style="float: right;">Apply Now!</button>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mb-3">
+                    <img src="https://scontent.fmaa2-1.fna.fbcdn.net/v/t1.0-9/62260955_2430841890528633_545499174880149504_o.jpg?_nc_cat=106&_nc_sid=2c4854&_nc_ohc=ex-Q1DN9q-oAX8EeCvA&_nc_ht=scontent.fmaa2-1.fna&oh=5210cd685058a611d7e5b3eeca10ef40&oe=5F7DF4D5"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title"></h5> -->
+                        <p class="card-text">VanHack is bringing to Munich a Recruiting
+                            Mission for Tech Talents who want to fuel the growth of Canada’s and Europe’s tech market.
+                            Some of the best companies in North America and Europe will be attending the fair, in hopes
+                            of filling over 100 positions.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Posted 3 mins ago</small>
+                            <button class="btn btn-primary" onclick="applyForHiring('munich')" id="munich" style="float: right;">Apply Now!</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- vanHackathon -->
+    <div class="vanHackathon" style="display: none;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white" onclick="hackathonDetails('VR Hackathon')"
+                    style="width: 30rem; cursor: pointer;">
+                    <img src="https://image.freepik.com/free-vector/gradient-geometric-shapes-dark-background_52683-33258.jpg"
+                        class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">VR Hackathon</h5>
+                        <p class="card-text">3 Oct 2020</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white" onclick="hackathonDetails('Online Hackathon')"
+                    style="width: 30rem;  cursor: pointer;">
+                    <img src="https://img.freepik.com/free-vector/colorful-gradient-geometric-shapes-background_23-2148319219.jpg?size=626&ext=jpg"
+                        class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="font-size: x-large !important">Online Hackathon</h5>
+                        <p class="card-text">12 Dec 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- meetUp -->
+    <div class="meetup" style="display: none;">
+        <div class="row">
+            <div class="col mb-4" id="vhmeetup">
+                <div class="card" style="width: 30rem;">
+                    <img src="" class="card-img-top meetupImg" width="420" height="315" alt="Meetup">
+                    <div class="card-body">
+                        <h2 class="card-text meetupCity"></h2>
+                        <span style="padding: 5px;font-size: 20px;">
+                            <i class="fas fa-address-book"></i>
+                        </span>
+                        <span class="card-text meetAddress"></span><br>
+                        <span style="padding: 5px;font-size: 20px;">
+                            <i class="fas fa-calendar-alt"></i>
+                        </span>
+                        <span class="card-text meetDate"></span><br>
+                        <span style="padding: 5px;font-size: 20px;">
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        <span class="card-text meetupContact"></span>
+                        <span style="float: right;"><a class="mdBtn" href="#" onclick="meetupDetails(this.id)">See
+                                More</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- webinar -->
+    <div class="webinar" style="display: none;">
+        <div class="premiumWebinar">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/Qz6xu9iMkb4" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/xFeWRdZ-otc" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="basicWebinar">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/pnZ-yxNePT8" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/c3uGmW3ykV8" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/NPNtoE-nUGw" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
