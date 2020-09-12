@@ -88,7 +88,7 @@ var hackathonData = [
     {
         "title": "Online Hackathon",
         "event": "The hackathon is an excellent opportunity to improve your coding skills, network with people in your field, or to try out that project you've always wanted to work on but never found the time. <br/> Alternatively, you may want to work as part of a team in a field that is completely new to you. It's really up to you. All that we ask is that you work on a computational project with a life sciences focus. Many of the participants last time came up with their own ideas for a project and worked on that for the three days. Alternatively, it may be possible to work on a project proposed by someone else. If you can't think of anything, then why not use the time to learn a new programming language or computational skill.",
-        "skill": " The hackathon is aimed at people of all skill sets, from people new to coding through to experts in  their respective fields. This is a chance to work in a friendly collaborative atmosphere and have some fun. <br/>  The previous two hackathons have taken place at venues in Cambridge, but obviously this year things are different. Rather that dispense with the hackathon all together, we decided to organise an online event in which we can interact via Zoom. It is free to take part.",
+        "skill": " The hackathon is aimed at people of all skill sets, from people new to coding through to experts in  their respective fields. This is a chance to work in a friendly collaborative atmosphere and have some fun. <br/><br/>  The previous two hackathons have taken place at venues in Cambridge, but obviously this year things are different. Rather that dispense with the hackathon all together, we decided to organise an online event in which we can interact via Zoom. It is free to take part.",
         "background": "https://img.freepik.com/free-vector/colorful-gradient-geometric-shapes-background_23-2148319219.jpg?size=626&ext=jpg"
     }
 ]
@@ -279,7 +279,7 @@ function loadMeetups() {
 function meetupDetails(city) {
     meetupsData.find((e) => {
         if (e.city == city) {
-            // document.getElementById('hackathonTitle').innerHTML = e.city + ' Meetup';
+            document.getElementById('hackathonTitle').style.display = "none";
             // document.getElementById('hackathonTitle').style.color = 'black';
             document.getElementById('eventDate').innerHTML = '';
             document.getElementById('eventDetails').innerHTML = e.description;
@@ -316,9 +316,10 @@ function loadWebinar(userType) {
 function premiumPricing() {
     vhevents[0].style.display = "block";
     backButton[0].style.display = "none";
-    // document.getElementById('successMsg').innerHTML = "Awesome! "
-    // document.getElementById('confimationMsg').innerHTML = "You have applied Successfully"
-    $('#premiumPricing').modal();
+    document.getElementById('premimumAlert').style.display = "block"
+    setTimeout(() => {
+        document.getElementById('premimumAlert').style.display = "none"
+    }, 5000);
 }
 
 // share on Social Media

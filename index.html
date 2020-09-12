@@ -63,6 +63,16 @@
         </a>
     </div>
 
+    <!-- notification area -->
+    <a name="toast"></a>
+    <div class="alert alert-danger" id="premimumAlert" role="alert" style="display: none;">
+        Become a Premium member to explore this. Check
+        <a href="#" class="alert-link" onclick="$('#premiumPricing').modal();"> Premium plans </a> here.
+        <button type="button" class="close" onclick="document.getElementById('premimumAlert').style.display = 'None'" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <!-- vanhack Events -->
     <div class="vhevents">
         <br>
@@ -113,63 +123,68 @@
         <br>
 
         <!-- meetup and Webinar -->
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.wraltechwire.com/wp-content/uploads/2019/09/networking-meetup-stock-photo-1280x640.jpg"
-                    width="420" height="315" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">MeetUp</h5>
-                    <p class="card-text">
-                        We are bringing an event for Tech Talents who want to relocate to Canada or Europe and don’t
-                        know how.
-                        At the Meetup, you’ll have the opportunity to be part of a live Recruiting Fair where you will
-                        see opportunities from companies in Canada and Europe looking for talents just like you.
-                    </p>
-                    <a href="#" class="checkBtn" onclick="loadMeetups()">Check it now</a>
+        <div class="row eventSeries">
+            <div class="col-md-4">
+                <div class="card" style="width: 30rem;">
+                    <img src="https://www.wraltechwire.com/wp-content/uploads/2019/09/networking-meetup-stock-photo-1280x640.jpg"
+                        width="420" height="315" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">MeetUp</h5>
+                        <p class="card-text">
+                            We are bringing an event for Tech Talents who want to relocate to Canada or Europe and don’t
+                            know how.
+                            At the Meetup, you’ll have the opportunity to be part of a live Recruiting Fair where you will
+                            see opportunities from companies in Canada and Europe looking for talents just like you.
+                        </p>
+                        <a href="#" class="checkBtn" onclick="loadMeetups()">Check it now</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.gribblesvets.co.nz/wp-content/uploads/2020/05/Webinar2.jpg" width="420"
-                    height="315" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="premimumWebinar">Premium Webinar
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-shield"
-                            class="svg-inline--fa fa-user-shield fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 640 512">
-                            <path fill="rgb(213 166 49)"
-                                d="M622.3 271.1l-115.2-45c-4.1-1.6-12.6-3.7-22.2 0l-115.2 45c-10.7 4.2-17.7 14-17.7 24.9 0 111.6 68.7 188.8 132.9 213.9 9.6 3.7 18 1.6 22.2 0C558.4 489.9 640 420.5 640 296c0-10.9-7-20.7-17.7-24.9zM496 462.4V273.3l95.5 37.3c-5.6 87.1-60.9 135.4-95.5 151.8zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm96 40c0-2.5.8-4.8 1.1-7.2-2.5-.1-4.9-.8-7.5-.8h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c6.8 0 13.3-1.5 19.2-4-54-42.9-99.2-116.7-99.2-212z">
-                            </path>
-                        </svg>
-                    </h5>
-                    <p class="card-text">
-                        A webinar is an event held virtually which is attended exclusively by an online audience.
-
-                        Become a Premium user and explore 40+ hours of live classes every month, you’re bound to
-                        find a slot that works in your timezone. You will receive personalized interaction and feedback
-                        in every class making this a unique experience.
-                    </p>
-                    <a href="#" class="checkBtn" onclick="loadWebinar('Premium')">Check it now</a>
+            <div class="col-md-4">
+                <div class="card premiumCard" style="width: 30rem;">
+                    <img src="https://www.gribblesvets.co.nz/wp-content/uploads/2020/05/Webinar2.jpg" width="420"
+                        height="315" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="premimumWebinar">Premium Webinar
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-shield" 
+                                class="svg-inline--fa fa-user-shield fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
+                                onclick="$('#premiumPricing').modal();" style="cursor: pointer;"
+                                viewBox="0 0 640 512">
+                                <path fill="rgb(213 166 49)"
+                                    d="M622.3 271.1l-115.2-45c-4.1-1.6-12.6-3.7-22.2 0l-115.2 45c-10.7 4.2-17.7 14-17.7 24.9 0 111.6 68.7 188.8 132.9 213.9 9.6 3.7 18 1.6 22.2 0C558.4 489.9 640 420.5 640 296c0-10.9-7-20.7-17.7-24.9zM496 462.4V273.3l95.5 37.3c-5.6 87.1-60.9 135.4-95.5 151.8zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm96 40c0-2.5.8-4.8 1.1-7.2-2.5-.1-4.9-.8-7.5-.8h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c6.8 0 13.3-1.5 19.2-4-54-42.9-99.2-116.7-99.2-212z">
+                                </path>
+                            </svg>
+                            </span>
+                        </h5>
+                        <p class="card-text">
+                            A webinar is an event held virtually which is attended exclusively by an online audience.
+    
+                            Become a Premium user and explore 40+ hours of live classes every month, you’re bound to
+                            find a slot that works in your timezone. You will receive personalized interaction and feedback
+                            in every class making this a unique experience.
+                        </p>
+                        <a href="#toast" class="checkBtn" onclick="loadWebinar('Premium')">Check it now</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://elearningindustry.com/wp-content/uploads/2018/07/how-to-improve-your-online-training-webinars-in-5-easy-steps.jpeg"
-                    width="420" height="315" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Webinar</h5>
-                    <p class="card-text">
-                        A webinar is a form of one-to-many communication: a presenter can reach a large and specific
-                        group of online viewers from a single location. A webinar is an event held virtually which is
-                        attended exclusively by an online audience.
-                    </p>
-                    <a href="#" class="checkBtn" onclick="loadWebinar('Basic')">Check it now</a>
+            <div class="col-md-4">
+                <div class="card" style="width: 30rem;">
+                    <img src="https://elearningindustry.com/wp-content/uploads/2018/07/how-to-improve-your-online-training-webinars-in-5-easy-steps.jpeg"
+                        width="420" height="315" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Webinar</h5>
+                        <p class="card-text">
+                            A webinar is a form of one-to-many communication: a presenter can reach a large and specific
+                            group of online viewers from a single location. A webinar is an event held virtually which is
+                            attended exclusively by an online audience.
+                        </p>
+                        <a href="#" class="checkBtn" onclick="loadWebinar('Basic')">Check it now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- notification area -->
     <!-- confirmation modal-->
     <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered">
@@ -226,8 +241,9 @@
                                 <p><i class="fas fa-check-circle" style="color: grey;"></i>&ensp;12 months <span
                                         style="float: right;">4999</span></p>
                             </li>
-                            <!-- <li class="list-group-item"><a href="#" class="btn btn-primary">Buy Now</a></li> -->
                         </ul>
+                        <a href="#" data-dismiss="modal" style="background-color: #1e2033;"
+                            class="btn btn-primary">Ok</a>
                     </div>
                 </div>
             </div>
@@ -251,12 +267,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h2>About this Event <span id="appliedMsg"></span><i class="fas fa-check-circle" id="checkIcon"
+                    <h2>About this event <span id="appliedMsg"></span><i class="fas fa-check-circle" id="checkIcon"
                             style="font-size: 20px !important; color: green; display: none;"></i></h2>
                     <p id="eventDetails"></p>
                 </div>
                 <div class="modal-footer" style="justify-content: end;">
-                    <h2 id="skillHedaer">Skills & venue</h2>
+                    <h2 id="skillHedaer">Skills set</h2>
                     <p id="skillDetails"></p>
 
                 </div>
@@ -281,7 +297,8 @@
                     <div class="card-footer" id="leapfooter">
                         <button type="button" class="btn btn-primary labutton"
                             onclick="applyEvent(this.id)">Apply</button>
-                        <button type="button" class="btn btn-primary sdbutton" onclick="leapEventDetails(this.id)">See Details</button>
+                        <button type="button" class="btn btn-primary sdbutton" onclick="leapEventDetails(this.id)">See
+                            Details</button>
                     </div>
                 </div>
             </div>
@@ -302,7 +319,8 @@
                             of filling over 100 positions.</p>
                         <p class="card-text">
                             <small class="text-muted">Posted 2 days ago</small>
-                            <button class="btn btn-primary" onclick="applyForHiring('berlin')" id="berlin" style="float: right;">Apply Now!</button>
+                            <button class="btn btn-primary" onclick="applyForHiring('berlin')" id="berlin"
+                                style="float: right;">Apply Now!</button>
                         </p>
 
                     </div>
@@ -320,7 +338,8 @@
                             of filling over 100 positions.</p>
                         <p class="card-text">
                             <small class="text-muted">Posted 3 mins ago</small>
-                            <button class="btn btn-primary" onclick="applyForHiring('munich')" id="munich" style="float: right;">Apply Now!</button>
+                            <button class="btn btn-primary" onclick="applyForHiring('munich')" id="munich"
+                                style="float: right;">Apply Now!</button>
                         </p>
                     </div>
                 </div>
