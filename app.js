@@ -62,7 +62,7 @@ var meetupsData = [
     {
         "imageUrl": "https://d3hfxk7rwdcpol.cloudfront.net/CSN/0abb0d8a-960b-4857-af10-45665ca3d7b3/images/f0fbea85d0f54612b873170c6c110c56_LARGE.jpg",
         "city": "Mumbai",
-        "addrrss": "The Taj Mahal Palace, Apollo Bandar, Colaba, Mumbai",
+        "addrrss": "The Taj Mahal Palace, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001",
         "date": "May 3rd 2020 - 8PM",
         "contact": 9854260234,
         "description": "We are bringing an event for Tech Talents who want to relocate to Canada or Europe and don’t know how.<br/><br/>At the Meetup, you’ll have the opportunity to be part of a live Recruiting Fair where you will see opportunities from companies in Canada and Europe looking for talents just like you.<br/><br/>One thing people usually are confused about is about the immigration process. How does it work to get a work permit? Can my family move with me? How long does the process take? A specialist on our Meetup will answer these and other questions.<br/><br/>Another doubt people have is about the English. How important are your English Skills for getting a job abroad? We’ll have our partner, LingoCentre, responsible for our English Verification, talking about it.<br/><br/>Meetup will happen on December 20th, starting at 6 PM. Since we have a limited seat number, we need to make a selection of people who apply. To know more about the people attending to match the vacancies better to the Recruiting Fair, you’ll need to create and fill out your VanHack Profile. You’ll receive further instructions on your email."
@@ -81,12 +81,14 @@ var meetupsData = [
 var hackathonData = [
     {
         "title": "VR Hackathon",
+        "date": "3 Oct 2020",
         "event": "A Hackathon is an event designed to foster innovation, collaboration and learning, enabling participants to be creative without the limitations of pre-existing ecosystems.This Hackathon is focused on using machine learning. The specific challenge will be announced closer to the event.",
         "skill": "We're looking for a diverse group of people who are great at problem solving, can innovate and bring different perspectives. Teams of up to 6 can participate. You are welcome to form teams beforehand or join up on the day! If you are a data scientist, software engineer, UX or graphic designer, product owner or strategist and interested in creating tech for good solutions - this hackathon is for you. You don't need to have any machine learning expertise, we can provide some guidance to get you up to a basic level prior to the event.",
         "background": "https://image.freepik.com/free-vector/gradient-geometric-shapes-dark-background_52683-33258.jpg"
     },
     {
         "title": "Online Hackathon",
+        "date": "12 Dec 2020",
         "event": "The hackathon is an excellent opportunity to improve your coding skills, network with people in your field, or to try out that project you've always wanted to work on but never found the time. <br/> Alternatively, you may want to work as part of a team in a field that is completely new to you. It's really up to you. All that we ask is that you work on a computational project with a life sciences focus. Many of the participants last time came up with their own ideas for a project and worked on that for the three days. Alternatively, it may be possible to work on a project proposed by someone else. If you can't think of anything, then why not use the time to learn a new programming language or computational skill.",
         "skill": " The hackathon is aimed at people of all skill sets, from people new to coding through to experts in  their respective fields. This is a chance to work in a friendly collaborative atmosphere and have some fun. <br/><br/>  The previous two hackathons have taken place at venues in Cambridge, but obviously this year things are different. Rather that dispense with the hackathon all together, we decided to organise an online event in which we can interact via Zoom. It is free to take part.",
         "background": "https://img.freepik.com/free-vector/colorful-gradient-geometric-shapes-background_23-2148319219.jpg?size=626&ext=jpg"
@@ -126,6 +128,7 @@ function eventModalSetup() {
     document.getElementById('hackathonModalLabel').style.display = "block";
     document.getElementById('skillDetails').parentElement.style.display = "block";
     document.getElementById('hackathonTitle').style.color = 'white';
+    document.getElementById('checkIcon').style.display = "none";
 }
 
 function loadLeapEvents() {
@@ -137,7 +140,7 @@ function loadLeapEvents() {
         var count = leapData.length - 1;
         for (var i = 0; i < count; i++) {
             var clone = leapcollection.cloneNode(true);
-            console.log(clone);
+            // console.log(clone);
             clone.id = 'leapEvents' + i;
             leapcollection.after(clone);
         }
@@ -160,14 +163,10 @@ function loadLeapEvents() {
 }
 
 function applyEvent(eventId) {
-    console.log(eventId);
-    // let selectedTitle = document.querySelector(".leapTitle");;
-    // appliedLeap.push(selectedTitle);
     document.getElementById('confimationMsg').innerHTML = "Awesome! You have applied Successfully"
     $('#confirmationModal').modal();
     document.getElementById(eventId).innerHTML = 'Applied';
     document.getElementById(eventId).disabled = true;
-
 }
 
 function leapEventDetails(event) {
@@ -210,6 +209,7 @@ function hackathonDetails(title) {
     hackathonData.find((e) => {
         if (e.title == title) {
             document.getElementById('hackathonTitle').innerHTML = e.title;
+            document.getElementById('eventDate').innerHTML = e.date;
             document.getElementById('eventDetails').innerHTML = e.event;
             document.getElementById('skillDetails').innerHTML = e.skill;
             let tmp = 'url(' + e.background + ')';
@@ -252,7 +252,7 @@ function loadMeetups() {
     if (cloneCounter.meetup == 0) {
         var count = meetupsData.length - 1;
         for (var i = 0; i < count; i++) {
-            console.log(i);
+            // console.log(i);
             var meetupClone = meetupcollection.cloneNode(true);
             meetupClone.id = 'meetup' + i;
             meetupcollection.after(meetupClone);
@@ -263,6 +263,7 @@ function loadMeetups() {
         var mdates = document.getElementsByClassName('meetDate');
         var contacts = document.getElementsByClassName('meetupContact');
         var mdButtons = document.getElementsByClassName('mdBtn');
+        var mdApplyButtons = document.getElementsByClassName('mdapplyBtn');
         for (x = 0; x < meetupsData.length; x++) {
             images[x].src = meetupsData[x].imageUrl;
             cities[x].innerHTML = meetupsData[x].city;
@@ -270,6 +271,7 @@ function loadMeetups() {
             mdates[x].innerHTML = meetupsData[x].date;
             contacts[x].innerHTML = meetupsData[x].contact;
             mdButtons[x].id = meetupsData[x].city;
+            mdApplyButtons[x].id = meetupsData[x].city + 'Meetup';
         }
         cloneCounter.meetup++;
     }
